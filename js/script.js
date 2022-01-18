@@ -31,50 +31,28 @@ if(playerInput == '1'){
 
 printMessage('Twój ruch to: ' + playerMove);
 
-if( computerMove == 'kamień' && playerMove == 'papier'){
-  printMessage('Ty wygrywasz!');
-}
-
-if( computerMove == 'nożyce' && playerMove == 'kamień'){
-  printMessage('Ty wygrywasz!');
-}
-
-if( computerMove == 'papier' && playerMove == 'nożyce'){
-  printMessage('Ty wygrywasz!');
-}
-
-if( computerMove == 'kamień' && playerMove == 'nożyce'){
-  printMessage('Przegrałeś!');
-}
-
-if( computerMove == 'nożyce' && playerMove == 'papier'){
-  printMessage('Przegrałeś!');
-}
-
-if( computerMove == 'papier' && playerMove == 'kamień'){
-  printMessage('Przegrałeś!');
-}
-
-if( computerMove == 'papier' && playerMove == 'papier'){
+if(
+    computerMove == 'kamień' && playerMove == 'papier'
+    || computerMove == 'nożyce' && playerMove == 'kamień'
+    || computerMove == 'papier' && playerMove == 'nożyce'
+  ){
+    printMessage('Ty wygrywasz!');
+} else if(
+  computerMove == 'papier' && playerMove == 'kamień'
+  || computerMove == 'kamień' && playerMove == 'nożyce'
+  || computerMove == 'nożyce' && playerMove == 'papier'
+){
+  printMessage('Przegrałeś');
+} else if(
+  computerMove == 'papier' && playerMove == 'papier'
+  || computerMove == 'kamień' && playerMove == 'kamień'
+  || computerMove == 'nożyce' && playerMove == 'nożyce'
+){
   printMessage('Remis');
-}
-
-if( computerMove == 'kamień' && playerMove == 'kamień'){
-  printMessage('Remis');
-}
-
-if( computerMove == 'nożyce' && playerMove == 'nożyce'){
-  printMessage('Remis');
-}
-
-if( computerMove == 'papier' && playerMove == 'nieznany ruch'){
-  printMessage('Oszukujesz!');
-}
-
-if( computerMove == 'kamień' && playerMove == 'nieznany ruch'){
-  printMessage('Oszukujesz!');
-}
-
-if( computerMove == 'nożyce' && playerMove == 'nieznany ruch'){
+} else if(
+  computerMove == 'papier' && playerMove == 'nieznany ruch'
+  || computerMove == 'kamień' && playerMove == 'nieznany ruch'
+  || computerMove == 'nożyce' && playerMove == 'nieznany ruch'
+){
   printMessage('Oszukujesz!');
 }
