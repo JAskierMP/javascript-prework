@@ -1,22 +1,17 @@
-function clearMessages(){
+{
+	const clearMessages = function(){
 	document.getElementById('messages').innerHTML = '';
 }
-
-
- function playGame(playerInput){
+ 	const playGame = function(playerInput){
 	clearMessages();
 
-  let randomNumber = Math.floor(Math.random() * 3 + 1);
+  const randomNumber = Math.floor(Math.random() * 3 + 1);
+  const computerMove = getMoveName(randomNumber);
+	const playerMove = getMoveName(playerInput);
 
-  ('Wylosowana liczba to: ' + randomNumber);
-
-  let computerMove = getMoveName(randomNumber);
-
+	('Wylosowana liczba to: ' + randomNumber);
   printMessage('Mój ruch to: ' + computerMove);
-
   ('Gracz wpisał: ' + playerInput);
-
-  let playerMove = getMoveName(playerInput);
 
   function getMoveName(argMoveId){
    if(argMoveId == 1){
@@ -55,3 +50,4 @@ document.getElementById('paper').addEventListener('click', function(){
 document.getElementById('scissors').addEventListener('click', function(){
   playGame(3);
 });
+}
