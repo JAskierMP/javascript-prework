@@ -1,17 +1,20 @@
 function clearMessages(){
 	document.getElementById('messages').innerHTML = '';
 }
- playGame(playerInput){
+
+
+ function playGame(playerInput){
+	clearMessages();
 
   let randomNumber = Math.floor(Math.random() * 3 + 1);
 
-  console.log('Wylosowana liczba to: ' + randomNumber);
+  ('Wylosowana liczba to: ' + randomNumber);
 
   let computerMove = getMoveName(randomNumber);
 
   printMessage('Mój ruch to: ' + computerMove);
 
-  console.log('Gracz wpisał: ' + playerInput);
+  ('Gracz wpisał: ' + playerInput);
 
   let playerMove = getMoveName(playerInput);
 
@@ -22,10 +25,7 @@ function clearMessages(){
      return 'papier';
    } else if (argMoveId == 3){
      return 'nożyce';
-   }
-
-   printMessage('Nie znam ruchu o id ' + argMoveId + '.');
-   return 'nieznany ruch';
+	 }
   }
 
   function displayResult(argComputerMove, argPlayerMove){
@@ -37,40 +37,21 @@ function clearMessages(){
         || argComputerMove == 'papier' && argPlayerMove == 'nożyce'
       ){
         printMessage('Ty wygrywasz!');
-    } else if(
-      argComputerMove == 'papier' && argPlayerMove == 'kamień'
-      || argComputerMove == 'kamień' && argPlayerMove == 'nożyce'
-      || argComputerMove == 'nożyce' && argPlayerMove == 'papier'
-    ){
-      printMessage('Przegrałeś');
-    } else if(
-      argComputerMove == 'papier' && argPlayerMove == 'papier'
-      || argComputerMove == 'kamień' && argPlayerMove == 'kamień'
-      || argComputerMove == 'nożyce' && argPlayerMove == 'nożyce'
-    ){
+    } else if(argComputerMove == argPlayerMove){
       printMessage('Remis');
-    } else if(
-      argComputerMove == 'papier' && argPlayerMove == 'nieznany ruch'
-      || argComputerMove == 'kamień' && argPlayerMove == 'nieznany ruch'
-      || argComputerMove == 'nożyce' && argPlayerMove == 'nieznany ruch'
-    ){
-      printMessage('Oszukujesz!');
+    } else {
+      printMessage('Przegrałeś');
     }
   }
+	displayResult(computerMove, playerMove)
 }
 
-displayResult(argComputerMove, argPlayerMove)
-
-  printMessage('Twój ruch to: ' + playerMove);
-
-playGame(3);
-
 document.getElementById('rock').addEventListener('click', function(){
-  printMessage('zagrałeś kamień');
+  playGame(1);
 });
 document.getElementById('paper').addEventListener('click', function(){
-  printMessage('zagrałeś papier');
+  playGame(2);
 });
-document.getElementById('zagrałeś nożyce').addEventListener('click', function(){
-  printMessage('Guzik został kliknięty');
+document.getElementById('scissors').addEventListener('click', function(){
+  playGame(3);
 });
