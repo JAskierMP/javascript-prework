@@ -1,7 +1,4 @@
 {
-	const clearMessages = function(){
-	document.getElementById('messages').innerHTML = '';
-}
  	const playGame = function(playerInput){
 	clearMessages();
 
@@ -9,11 +6,7 @@
   const computerMove = getMoveName(randomNumber);
 	const playerMove = getMoveName(playerInput);
 
-	('Wylosowana liczba to: ' + randomNumber);
-  printMessage('Mój ruch to: ' + computerMove);
-  ('Gracz wpisał: ' + playerInput);
-
-  function getMoveName(argMoveId){
+  const getMoveName(argMoveId){
    if(argMoveId == 1){
      return 'kamień';
    } else if (argMoveId == 2){
@@ -23,7 +16,7 @@
 	 }
   }
 
-  function displayResult(argComputerMove, argPlayerMove){
+  const displayResult(argComputerMove, argPlayerMove){
     printMessage('Zagrałem ' + argComputerMove + ', a Ty ' + argPlayerMove);
 
     if(
