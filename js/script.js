@@ -1,12 +1,8 @@
 {
- 	const playGame = function(playerInput){
+const playGame = function(playerInput){
 	clearMessages();
 
-  const randomNumber = Math.floor(Math.random() * 3 + 1);
-  const computerMove = getMoveName(randomNumber);
-	const playerMove = getMoveName(playerInput);
-
-  const getMoveName(argMoveId){
+  const getMoveName = function(argMoveId){
    if(argMoveId == 1){
      return 'kamień';
    } else if (argMoveId == 2){
@@ -16,7 +12,12 @@
 	 }
   }
 
-  const displayResult(argComputerMove, argPlayerMove){
+  const randomNumber = Math.floor(Math.random() * 3 + 1);
+  const computerMove = getMoveName(randomNumber);
+  const playerMove = getMoveName(playerInput);
+
+
+  const displayResult = function(argComputerMove, argPlayerMove){
     printMessage('Zagrałem ' + argComputerMove + ', a Ty ' + argPlayerMove);
 
     if(
@@ -31,6 +32,7 @@
       printMessage('Przegrałeś');
     }
   }
+
 	displayResult(computerMove, playerMove)
 }
 
